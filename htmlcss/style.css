@@ -1,0 +1,774 @@
+/* ========================================
+   IMPORT GOOGLE FONTS
+   ======================================== */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ========================================
+   ROOT & VARIABLES
+   ======================================== */
+:root {
+    /* Primary Color Scheme */
+    --primary-color: #6366f1;      /* Indigo */
+    --primary-dark: #4f46e5;       /* Darker Indigo */
+    --secondary-color: #8b5cf6;    /* Purple */
+    --accent-color: #ec4899;       /* Pink */
+    
+    /* Neutral Colors */
+    --text-dark: #1f2937;          /* Dark Gray */
+    --text-light: #6b7280;         /* Light Gray */
+    --bg-light: #f3f4f6;           /* Light Background */
+    --bg-white: #ffffff;           /* White */
+    
+    /* Spacing */
+    --spacing-xs: 8px;
+    --spacing-sm: 12px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    --spacing-2xl: 40px;
+    
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-full: 50%;
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* ========================================
+   GLOBAL STYLES
+   ======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: var(--spacing-lg);
+}
+
+/* ========================================
+   TYPOGRAPHY
+   ======================================== */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.4;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    color: var(--primary-color);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 3px solid var(--primary-color);
+}
+
+h3 {
+    font-size: 1.25rem;
+    color: var(--text-dark);
+}
+
+p {
+    line-height: 1.8;
+    color: var(--text-light);
+    margin-bottom: var(--spacing-md);
+}
+
+strong {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+em {
+    font-style: italic;
+    color: var(--secondary-color);
+}
+
+/* ========================================
+   CONTAINER & LAYOUT
+   ======================================== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: var(--bg-white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    animation: slideInUp 0.6s ease-out;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: var(--bg-white);
+    padding: var(--spacing-2xl) var(--spacing-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100px;
+}
+
+header h1 {
+    color: var(--bg-white);
+    margin: 0;
+    font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--bg-white);
+}
+
+nav {
+    display: flex;
+    gap: var(--spacing-xl);
+    align-items: center;
+}
+
+nav a {
+    color: var(--bg-white);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    padding-bottom: 4px;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* ========================================
+   MAIN CONTENT
+   ======================================== */
+.intro {
+    padding: var(--spacing-2xl);
+    max-width: 100%;
+}
+
+section {
+    margin-bottom: var(--spacing-2xl);
+}
+
+/* ========================================
+   PROFILE SECTION (CARD STYLE)
+   ======================================== */
+.profile-section {
+    display: flex;
+    gap: var(--spacing-xl);
+    align-items: flex-start;
+    background: var(--bg-light);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+
+.profile-section:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.profile-image {
+    flex-shrink: 0;
+}
+
+.profile-image img {
+    width: 220px;
+    height: 220px;
+    border-radius: var(--radius-full);
+    border: 5px solid var(--primary-color);
+    object-fit: cover;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.3s ease;
+}
+
+.profile-image img:hover {
+    transform: scale(1.05);
+}
+
+.profile-content {
+    flex: 1;
+}
+
+.profile-content p {
+    margin-bottom: var(--spacing-md);
+    text-align: justify;
+}
+
+/* ========================================
+   LINKS & BUTTONS
+   ======================================== */
+.links {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+    margin-top: var(--spacing-lg);
+}
+
+.links a {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background: var(--primary-color);
+    color: var(--bg-white);
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.links a:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    text-decoration-line: underline;
+    text-underline-offset: 4px;
+}
+
+/* ========================================
+   SKILLS SECTION (CARD STYLE)
+   ======================================== */
+.skills {
+    background: var(--bg-white);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 2px solid var(--bg-light);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.skill-item {
+    background: var(--bg-light);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    border-left: 4px solid var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateX(8px);
+    box-shadow: var(--shadow-md);
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+}
+
+.skill-item strong {
+    display: block;
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+.skill-item ul {
+    list-style: none;
+    margin-left: 0;
+}
+
+.skill-item li {
+    padding-left: var(--spacing-lg);
+    margin-bottom: var(--spacing-sm);
+    position: relative;
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+.skill-item li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+.skills ol, .skills ul {
+    list-style: none;
+    margin-left: 0;
+}
+
+.skills li {
+    margin-bottom: var(--spacing-md);
+    padding-left: var(--spacing-lg);
+    position: relative;
+}
+
+.skills li::before {
+    content: "🎯";
+    position: absolute;
+    left: 0;
+    margin-right: var(--spacing-sm);
+}
+
+.sub-skills {
+    margin-top: var(--spacing-md);
+    margin-left: var(--spacing-lg);
+    font-size: 0.95rem;
+    color: var(--text-light);
+}
+
+/* ========================================
+   FORM SECTION (CARD STYLE)
+   ======================================== */
+.form-section {
+    background: var(--bg-light);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+form {
+    background: var(--bg-white);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-sm);
+    border: 1px solid #e5e7eb;
+}
+
+.form-group {
+    margin-bottom: var(--spacing-lg);
+}
+
+label {
+    display: block;
+    margin-bottom: var(--spacing-sm);
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+}
+
+input[type="text"],
+input[type="email"],
+textarea,
+select {
+    width: 100%;
+    padding: var(--spacing-md);
+    border: 2px solid #e5e7eb;
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--text-dark);
+    transition: all 0.3s ease;
+    background: var(--bg-white);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+    background: var(--bg-white);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 140px;
+    font-family: 'Inter', sans-serif;
+}
+
+/* ========================================
+   RADIO BUTTONS
+   ======================================== */
+.radio-group {
+    display: flex;
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    font-weight: 400;
+    gap: var(--spacing-sm);
+    cursor: pointer;
+}
+
+input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--primary-color);
+}
+
+/* ========================================
+   BUTTONS
+   ======================================== */
+.button-group {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-xl);
+}
+
+button {
+    flex: 1;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+button[type="submit"] {
+    background: var(--primary-color);
+    color: var(--bg-white);
+}
+
+button[type="submit"]:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+button[type="submit"]:active {
+    transform: translateY(0);
+}
+
+button[type="reset"] {
+    background: #9ca3af;
+    color: var(--bg-white);
+}
+
+button[type="reset"]:hover {
+    background: #6b7280;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* ========================================
+   TABLE SECTION (CARD STYLE)
+   ======================================== */
+.table-section {
+    background: var(--bg-white);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 2px solid var(--bg-light);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: var(--spacing-lg);
+    font-size: 0.95rem;
+}
+
+thead {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: var(--bg-white);
+}
+
+th {
+    padding: var(--spacing-md);
+    text-align: left;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+td {
+    padding: var(--spacing-md);
+    text-align: left;
+    border-bottom: 1px solid var(--bg-light);
+    color: var(--text-light);
+}
+
+tbody tr {
+    transition: all 0.3s ease;
+}
+
+tbody tr:nth-child(odd) {
+    background: rgba(243, 244, 246, 0.5);
+}
+
+tbody tr:hover {
+    background: linear-gradient(90deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+    transform: scale(1.01);
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+footer {
+    background: linear-gradient(135deg, var(--text-dark) 0%, #111827 100%);
+    color: var(--bg-white);
+    text-align: center;
+    padding: var(--spacing-xl) var(--spacing-lg);
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+footer p {
+    margin: 0;
+    color: #d1d5db;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+/* Tablet: 768px */
+@media (max-width: 768px) {
+    :root {
+        --spacing-lg: 20px;
+        --spacing-2xl: 28px;
+    }
+
+    body {
+        padding: var(--spacing-md);
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    header {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--spacing-md);
+        padding: var(--spacing-lg);
+    }
+
+    nav {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        width: 100%;
+    }
+
+    .intro {
+        padding: var(--spacing-lg);
+    }
+
+    .profile-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .profile-image img {
+        width: 180px;
+        height: 180px;
+    }
+
+    .profile-content p {
+        text-align: center;
+    }
+
+    .links {
+        justify-content: center;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+
+    .radio-group {
+        gap: var(--spacing-lg);
+    }
+
+    table {
+        font-size: 0.85rem;
+    }
+
+    th, td {
+        padding: var(--spacing-md);
+    }
+}
+
+/* Mobile: <= 480px */
+@media (max-width: 480px) {
+    :root {
+        --spacing-md: 12px;
+        --spacing-lg: 16px;
+        --spacing-xl: 20px;
+        --spacing-2xl: 24px;
+    }
+
+    body {
+        padding: var(--spacing-md);
+    }
+
+    .container {
+        border-radius: var(--radius-md);
+    }
+
+    header {
+        min-height: auto;
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    nav {
+        font-size: 0.9rem;
+        gap: var(--spacing-md);
+    }
+
+    nav a {
+        font-size: 0.85rem;
+    }
+
+    .intro {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+
+    .profile-section {
+        padding: var(--spacing-md);
+    }
+
+    .profile-image img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .links a {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+    }
+
+    .skills,
+    .form-section,
+    .table-section {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+
+    form {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+
+    .form-group {
+        margin-bottom: var(--spacing-md);
+    }
+
+    .radio-group {
+        gap: var(--spacing-md);
+        flex-direction: column;
+    }
+
+    .radio-group label {
+        gap: var(--spacing-sm);
+    }
+
+    button {
+        padding: var(--spacing-md) var(--spacing-lg);
+        font-size: 0.9rem;
+    }
+
+    table {
+        font-size: 0.8rem;
+    }
+
+    th, td {
+        padding: var(--spacing-sm);
+    }
+
+    footer {
+        padding: var(--spacing-lg) var(--spacing-md);
+        font-size: 0.8rem;
+    }
+}
+
+/* Desktop: 1024px+ */
+@media (min-width: 1024px) {
+    .profile-section {
+        gap: var(--spacing-2xl);
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .links {
+        gap: var(--spacing-lg);
+    }
+}
+
+/* ========================================
+   ANIMATIONS & TRANSITIONS
+   ======================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+section {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Smooth scrolling for links */
+a {
+    scroll-behavior: smooth;
+}
